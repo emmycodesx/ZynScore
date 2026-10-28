@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  /* ZynScore Clean Palette */
+  --bg-main: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-dark-card: #0B0F19;
+  --border-subtle: #E5E7EB;
+  --border-card: #E5E7EB;
+
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+
+  --accent-red: #EF4444;
+  --accent-blue: #2563EB;
+
+  --font-heading: var(--font-barlow-condensed), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Subtle blinking red dot for LIVE matches */
+@keyframes live-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+}
+
+.animate-live-pulse {
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+/* Radar Sonar Ring Animation */
+@keyframes radar-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar-ring {
+  animation: radar-ring 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Smooth Floating Animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4.5s ease-in-out infinite;
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.animate-float-reverse {
+  animation: float-reverse 5.5s ease-in-out infinite;
+}
+
+/* Telemetry Equalizer Audio/Signal Waves */
+@keyframes telemetry-wave-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+@keyframes telemetry-wave-2 {
+  0%, 100% { height: 14px; }
+  50% { height: 6px; }
+}
+
+@keyframes telemetry-wave-3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+
+@keyframes telemetry-wave-4 {
+  0%, 100% { height: 16px; }
+  50% { height: 5px; }
+}
+
+.animate-telemetry-1 { animation: telemetry-wave-1 1.1s ease-in-out infinite; }
+.animate-telemetry-2 { animation: telemetry-wave-2 0.9s ease-in-out infinite; }
+.animate-telemetry-3 { animation: telemetry-wave-3 1.4s ease-in-out infinite; }
+.animate-telemetry-4 { animation: telemetry-wave-4 1s ease-in-out infinite; }
+
+/* Shimmer Sweep Effect */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer-sweep 2.8s ease-in-out infinite;
+}
+
+/* Breathing Ambient Glow */
+@keyframes ambient-glow {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.12);
+  }
+}
+
+.animate-ambient-glow {
+  animation: ambient-glow 7s ease-in-out infinite;
+}
+
+/* Ticker marquee animation */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 38s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
